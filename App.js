@@ -1,21 +1,48 @@
-import React from 'react';
-import type {Node} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+/* eslint-disable */
 
-const App: () => Node = () => {
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
+//screens
+import HomeScreen from './src/screens/Home.js';
+import ProductsScreen from './src/screens/Products.js'
+import CategoriesScreen from './src/screens/Categories.js'
+import OrdersScreen from './src/screens/Orders.js'
+
+
+const Stack = createStackNavigator();
+
+  function Router() {
   return (
-    <View>
-      <Text>Burak Hotan</Text>
-    </View>
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+
+            <Stack.Screen name= "Home" component={HomeScreen}
+            options={{
+                headerShown:false
+            }}
+            />
+            <Stack.Screen name= "Products" component={ProductsScreen}
+            options={{
+                headerShown:false
+            }}
+            />
+            <Stack.Screen name= "Categories" component={CategoriesScreen}
+            options={{
+                headerShown:false
+            }}
+            />
+            <Stack.Screen name= "Orders" component={OrdersScreen}
+            options={{
+                headerShown:false
+            }}
+            />
+            
+            
+        </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-})
-
-export default App;
+}
+export default Router;
