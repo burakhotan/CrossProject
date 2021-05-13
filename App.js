@@ -10,6 +10,7 @@ import HomeScreen from './src/screens/Home.js';
 import ProductsScreen from './src/screens/Products.js'
 import CategoriesScreen from './src/screens/Categories.js'
 import OrdersScreen from './src/screens/Orders.js'
+import ProductDetailsScreen from './src/screens/ProductDetails.js'
 
 
 const Stack = createStackNavigator();
@@ -39,7 +40,11 @@ const Stack = createStackNavigator();
                 headerShown:false
             }}
             />
-            
+            <Stack.Screen name= "ProductDetails" component={ProductDetailsScreen}
+            options={{
+                headerShown:false
+            }}
+            />
             
         </Stack.Navigator>
     </NavigationContainer>

@@ -2,13 +2,12 @@
 import React, { Component, useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 //components
 import Product from '../components/Product.js'
 
-const Products = () => {
+const Products = ({ navigation }) => {
   const [products, setProducts] = useState([]);
-
   useEffect(() => {
     axios.get(`https://northwind.vercel.app/api/products`)
       .then(res => {
@@ -24,12 +23,11 @@ const Products = () => {
             prodName={item.name}
             quantity={item.quantityPerUnit}
             price={item.unitPrice}
+            navigation={navigation}
+            item={item}
           />
         }
       />
-
-
-
     </View>
   );
 }
