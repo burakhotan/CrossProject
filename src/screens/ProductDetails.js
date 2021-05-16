@@ -9,7 +9,13 @@ export default class ProductDetailsScreen extends Component {
         const { selectedItem } = this.props.route.params;
         return (
             <View style={styles.container}>
-                <Text>{selectedItem.name}</Text>
+                <View style={styles.card}>
+                    <Text>ID: {selectedItem.id}</Text>
+                    <Text>Product Name: {selectedItem.name}</Text>
+                    <Text>Quantity Per Unit: {selectedItem.quantityPerUnit}</Text>
+                    <Text>Price: {selectedItem.unitPrice}</Text>
+                    <Text>Stock: {selectedItem.unitsInStock}</Text>
+                </View>
             </View>
         );
     }
@@ -21,4 +27,10 @@ const styles = StyleSheet.create({ //STYLES
         justifyContent: 'center',
         alignItems: 'center'
     },
+    card: {
+        flex: 0.2,
+        backgroundColor: '#eb4034',
+        padding: 15,
+        borderRadius: 5
+    }
 });

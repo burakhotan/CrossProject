@@ -8,12 +8,14 @@ import Product from '../components/Product.js'
 
 const Products = ({ navigation }) => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     axios.get(`https://northwind.vercel.app/api/products`)
       .then(res => {
         setProducts(res.data);
       })
   });
+
   return (
     <View style={styles.container}>
       <FlatList
