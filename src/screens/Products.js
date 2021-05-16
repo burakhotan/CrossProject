@@ -22,6 +22,7 @@ const Products = ({ navigation }) => {
         data={products}
         renderItem={({ item }) =>
           <Product
+            id={item.id}
             prodName={item.name}
             quantity={item.quantityPerUnit}
             price={item.unitPrice}

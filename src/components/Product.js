@@ -1,20 +1,33 @@
 /* eslint-disable */
 import React, { Component, } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import axios from 'axios';
 //components
 export default class Product extends Component {
-
+  delete = ({ id }) => {
+    axios.delete(`https://northwind.vercel.app/api/products/${id}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
   render() {
-    const { prodName, quantity, price, item, navigation } = this.props;
+    const { id, prodName, quantity, price, item, navigation } = this.props;
     return (
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('ProductDetails', { selectedItem: item })}
-      >
-        <Text>{prodName}</Text>
-        <Text>{quantity}</Text>
-        <Text>{price}</Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ProductDetails', { selectedItem: item })}
+        >
+          <Text>{prodName}</Text>
+          <Text>{quantity}</Text>
+          <Text>{price}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.delete({ id })}
+        >
+          <Text>Delete</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
