@@ -18,14 +18,15 @@ export default class Product extends Component {
         <TouchableOpacity
           onPress={() => navigation.navigate('ProductDetails', { selectedItem: item })}
         >
-          <Text>{prodName}</Text>
-          <Text>{quantity}</Text>
-          <Text>{price}</Text>
+          <Text style={styles.whiteTxt}>{prodName}</Text>
+          <Text style={styles.whiteTxt}>{quantity}</Text>
+          <Text style={styles.whiteTxt}>{price}$</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={styles.deleteBtn}
           onPress={() => this.delete({ id })}
         >
-          <Text>Delete</Text>
+          <Text style={styles.whiteTxt}>Delete</Text>
         </TouchableOpacity>
       </View>
     );
@@ -42,6 +43,17 @@ const styles = StyleSheet.create({ //STYLES
     paddingHorizontal: 10,
     marginVertical: 3,
     marginHorizontal: 10,
-    backgroundColor: "#eb4034",
+    backgroundColor: "#2c8543",
   },
+  deleteBtn:{
+    backgroundColor:'#1b692f',
+    alignItems:'center',
+    marginHorizontal:60,
+    borderRadius:5,
+    marginTop:5
+  },
+  whiteTxt:{
+    color:'#ffffff',
+    
+  }
 });

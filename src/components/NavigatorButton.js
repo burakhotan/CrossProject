@@ -9,7 +9,7 @@ export default class NavigatorButton extends Component {
     return (
       <TouchableOpacity onPress={() => navigation.navigate(screen)}>
         <View style={styles.buttonContainer}>
-          <Text>{btnText}</Text>
+          <Text style={styles.whiteTxt}>{btnText}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -19,11 +19,15 @@ export default class NavigatorButton extends Component {
 const styles = StyleSheet.create({
   buttonContainer: {
     padding: 5,
-    backgroundColor: '#eb4034',
+    backgroundColor: '#2c8543',
     alignItems: 'center',
     marginBottom:15,
     marginHorizontal:25,
     borderRadius:8
 
   },
+  whiteTxt:{
+    color:'#ffffff',
+    
+  }
 });
